@@ -29,8 +29,9 @@ class LList:
         print(f"{'MUSIC PLAYLIST MANAGER':^50}")
         print("=" * 50)
 
+
         if self._head is None:
-            print(f"{'No songs added':^50}")
+            print(f"{'!No songs added@':^50}")
             return
         
         current = self._head
@@ -39,6 +40,21 @@ class LList:
             print(f"{pos} {current.data}")
             current = current.next
             pos += 1
+
+    def display_list(self):
+        print(f"{'=DISPLAY PLAYLIST SIZE=':^50}")
+        if self._head is None:
+            print(f"{'!No songs added!':^50}")
+            return
+
+
+        current = self._head
+
+        while current is not None:
+            print(f"[{current.data._song_title}]", end = " => ")
+            current = current.next
+        print("NULL")
+       
 
 
     def input_song(self):
@@ -52,7 +68,7 @@ class LList:
 
     def search (self, key):
         if self._head is None:
-            print("No created playlists")
+            print(f"No created playlists for '{key}")
             return False
         
         current = self._head
@@ -143,6 +159,9 @@ class LList:
         else:
             print(f"Song ID '{song_id}' not found.")
 
+       
+
+
 def main_menu():
     Playlist = LList()
 
@@ -198,6 +217,7 @@ def main_menu():
                                 print("Invalid position input!")
                             test = input("\nPress ENTER to continue")
                         case '4':
+                            print(f"{'SONG DISPLAY':^50}")
                             Playlist.displaysong()
                             test = input("\nPress ENTER to continue")
                         case '5':
@@ -210,8 +230,8 @@ def main_menu():
                             Playlist.delete_node(key)
                             test = input("\nPress ENTER to continue")
                         case '7':
-                            Playlist.displaysong()
-                            print(f"Total songs in playlist: {len(Playlist)}")
+                            Playlist.display_list()
+                            print(f"\nTotal songs in playlist: {len(Playlist)}")
                             test = input("\nPress ENTER to continue")
                         case '8':
                             print("Returning to Main Menu...")
