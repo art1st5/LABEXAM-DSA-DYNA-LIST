@@ -118,10 +118,7 @@ class LList:
         
         new_node = Node(data)
         current = self._head
-        if pos == 0:
-            new_node.next = self._head
-            self._head= new_node
-            return
+
         for i in range (1, pos - 1):
             current = current.next 
         new_node.next = current.next
