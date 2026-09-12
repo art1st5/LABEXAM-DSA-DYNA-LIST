@@ -9,7 +9,7 @@ class MusicPlayer():
 
 
     def __str__(self):
-        return f"[SONG ID:{self._song_id}] {self._song_title} by {self._song_artist} ({self._song_duration} Minutes)"
+        return f"[Song ID:{self._song_id}] | Song Title:{self._song_title} | Artist:{self._song_artist} | Duration:({self._song_duration} Minutes)"
 class Node:
     def __init__(self, data):
         self.data = data
@@ -31,7 +31,7 @@ class LList:
 
 
         if self._head is None:
-            print(f"{'!No songs added@':^50}")
+            print(f"{'!No songs added!':^50}")
             return
         
         current = self._head
@@ -89,7 +89,7 @@ class LList:
         self._head = new_node
         self._size += 1
 
-        print("Song added to the queue")
+        print("Song Playing Now")
         
     def insert_end(self, data):
 
